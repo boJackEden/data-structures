@@ -15,6 +15,9 @@ var Queue = function(){
     var result = storage[0];
     delete storage[0];
     size--;
+
+    storage[size-1] = storage[size];
+
     return result;
   };
 
