@@ -1,18 +1,26 @@
 var LinkedList = function(){
-  var count = 0;
   var list = {};
   list.head = null;
   list.tail = null;
 
+
   list.addToTail = function(value){
-    count++;
-    list[count] = Node(value);
-    list.tail = Node(value);
+    if (list.tail === null) {
+      list.tail = Node(value);
+      var prevNode = list.tail;
+    } else {
+      prevNode = list.tail;
+      list.tail = Node(value);
+    }
+
+    if (list.head === null) {
+      list.head = list.tail;
+    }
+    prevNode.next = list.tail;
   };
 
   list.removeHead = function(){
-    delete list.head;
-    list.head = list.tail;
+
   };
 
   list.contains = function(target){
