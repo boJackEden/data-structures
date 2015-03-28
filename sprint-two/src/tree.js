@@ -27,7 +27,6 @@ treeMethods.contains = function(target){
 
 
   var search = function(currentNode) {
-    currentNode = currentNode || this;
 
     if(currentNode.value === target) {
       result = true;
@@ -39,14 +38,13 @@ treeMethods.contains = function(target){
         return result;
       } else {
         if(currentNode.children[i].children.length > 0){
-          return search(currentNode.children[i]);
+          search(currentNode.children[i]);
         }
       }
     }
-    return result;
-
   }
-    return search(this);
+    search(this);
+    return result;
 
 };
 
